@@ -47,14 +47,14 @@ class DropResidualNormalizeLayer(pl.LightningModule):
     
     def forward(
         self,
-        out: torch.tensor,
-        prev_out: torch.tensor=None
+        batch_x: torch.tensor,
+        identity: torch.tensor=None
     ):
         if self.dropout_rate:
-            out = self.dropout(out)
+            out = self.dropout(batch_x)
         
-        if prev_out is not None:
-            out = out + prev_out
+        if identity is not None:
+            out += identity
 
         out = self.layer_norm(out)
 
