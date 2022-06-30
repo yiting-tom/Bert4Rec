@@ -19,8 +19,19 @@ class ConfMultiHeadAttention(BaseModel):
     d_key: int
     d_val: int
     d_model: int
-    dropout_rate = 0.0
-    name='multi_head_attn'
+    dropout_rate: float
+    name: str
+
+    @classmethod
+    def new_default(cls):
+        return cls(
+            n_head=8,
+            d_key=64,
+            d_val=64,
+            d_model=512,
+            dropout_rate=0.1,
+            name='multi_head_attn',
+        )
 
 class MultiHeadAttention(pl.LightningModule):
     """MultiHeadAttention _summary_
