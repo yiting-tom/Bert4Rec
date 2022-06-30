@@ -9,11 +9,6 @@ from pydantic import BaseModel
 class ConfDropResidaulNormalizeLayer(BaseModel):
     """ConfDropResidaulNormalizeLayer class
 
-    Process:
-        1. Dropout
-        2. Residual addition
-        3. Normalize
-
     Args:
         dropout_rate (float): Dropout probability.
         norm_shape (int): Shape of the normalization layer.
@@ -27,6 +22,11 @@ class ConfDropResidaulNormalizeLayer(BaseModel):
 
 class DropResidualNormalizeLayer(pl.LightningModule):
     """DropResidualNormalizeLayer _summary_
+
+    Do following sequential steps:
+        1. Dropout
+        2. Add residual
+        3. Layer normalization
 
     Args:
         c (ConfDropResidaulNormalizeLayer): The configuration of the layer.
