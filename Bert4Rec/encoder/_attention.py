@@ -123,7 +123,7 @@ class MultiHeadAttention(pl.LightningModule):
         out = h @ v
 
         # h: [B, nh, S, dh] -> [B, S, dm]
-        out = torch.einsum("BnSd -> BSD", out) + out # residual connection
+        out = torch.einsum("BnSd -> BSD", out)
 
         # out: [B, S, dm]
         return self.out(out)
