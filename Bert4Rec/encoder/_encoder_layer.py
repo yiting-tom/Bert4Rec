@@ -20,7 +20,7 @@ class ConfEncoderLayer(BaseModel):
         name (str): The name of the layer.
     """
     conf_multihead_attn: ConfMultiHeadAttention
-    conf_drop_redsual_norm_layer: ConfDropResidaulNormalizeLayer
+    conf_drop_redsiual_norm_layer: ConfDropResidaulNormalizeLayer
     conf_feed_forward_layer: ConfFeedForwardLayer
     name: str
 
