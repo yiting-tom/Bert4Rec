@@ -1,0 +1,1 @@
+from .bert4rec import ConfBert4Rec, Bert4Rec
