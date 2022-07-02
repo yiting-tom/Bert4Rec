@@ -5,15 +5,7 @@ from bert4rec.encoder.encoder_layer._feed_forward_layer import (
     ConfFeedForwardLayer, FeedForwardLayer)
 
 
-@pytest.fixture(scope='session')
-def conf_feed_forward_layer() -> ConfFeedForwardLayer:
-    return ConfFeedForwardLayer(
-        d_in=128,       # d_model
-        d_hid=256,
-        activation=nn.ReLU(inplace=True),
-        name='test_feed_forward_layer',
-    )
-
+@pytest.mark.order(2)
 def test_feed_forward_layer_class(conf_feed_forward_layer: ConfFeedForwardLayer):
     c: ConfFeedForwardLayer = conf_feed_forward_layer
 
