@@ -4,17 +4,7 @@ from bert4rec.encoder.encoder_layer._attention import (ConfMultiHeadAttention,
                                                        MultiHeadAttention)
 
 
-@pytest.fixture(scope='session')
-def conf_multi_head_attention() -> ConfMultiHeadAttention:
-    return ConfMultiHeadAttention(
-        n_head=8,
-        d_key=16,
-        d_val=16,
-        d_model=128,
-        dropout_rate=0.1,
-        name='test_multihead_attention'
-    )
-
+@pytest.mark.order(1)
 def test_multihead_attention_class(conf_multi_head_attention: ConfMultiHeadAttention):
     c: ConfMultiHeadAttention = conf_multi_head_attention
     attn: MultiHeadAttention = MultiHeadAttention(c)
